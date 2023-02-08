@@ -1,79 +1,96 @@
+let playerScore = 0
+let computerScore = 0
+let playerSelection;
+let computerSelection;
  
+ //let playerSelection = prompt("Please insert Rock Paper or Scissor ");
  
- const playerSelection = prompt("Please insert Rock Paper or Scissor ");
+ //let playerSelection = "rock"//playerSelection.toLowerCase();
+
+ 
+ function computerPlay() {
+   let choices = ['rock', 'paper', 'scissor']
+    return choices[Math.floor(Math.random() * choices.length)]
+ }
+
+   // let computerSelection = computerPlay(); 
+ /*
  const myArray = [ "rock", "paper", "scissor"];
- let player = playerSelection.toLowerCase()
+ function getComputerChoice(myArray){
+  
+    const randomItem = Math.floor(Math.random() * myArray.length);
+    const item = myArray[randomItem];
+    return item;
+}
+ 
+const computerSelection =  getComputerChoice(myArray);
+*/
+   
+ 
+ function playRound(playerSelection, computerSelection) {   
+     let result = ''   
+    
+    if (playerSelection === computerSelection){
+       result = ( "It's tie! Try again!" + " computer choice is  " + computerSelection);
+       
+       
+   }
 
- function playRound(playerSelection, computerSelection) {
-
-    if (player === computerSelection){
-        console.log( "It's tight! Try again!" + "computer choice is  " + computerSelection)
+    else  if (playerSelection === "rock" && computerSelection === "paper") {
+        result = ("You lose!" );
+        computerScore += 1;
     }
-
-    else  if (player === "rock" && computerSelection === "paper") {
-        console.log ("You lose!" )
+    else if (playerSelection === "rock" && computerSelection === "scissor") {
+        result = ("Congratulation!!! You've won this time!" );
+        playerScore += 1;
     }
-    else if (player === "rock" && computerSelection === "scissor") {
-        console.log ("Congratulation!!! You've won this time!" )
+    else if (playerSelection === "paper" && computerSelection === "rock") {
+        result =  ("Congratulation!!! You've won this time" );
+        playerScore += 1;
     }
-    else if (player === "paper" && computerSelection === "rock") {
-        console.log ("Congratulation!!! You've won this time" )
-    }
-    else if (player === "paper" && computerSelection === "scissor") {
-        console.log ("You lose!" )
+    else if (playerSelection === "paper" && computerSelection === "scissor") {
+        result =  ("You lose!" );
+        computerScore += 1;
     } 
-    else if (player === "scissor" && computerSelection === "rock") {
-            console.log ("You lose!" )
+    else if (playerSelection === "scissor" && computerSelection === "rock") {
+            result = ("You lose!" );
+            computerScore += 1;
     }
-    else if (player === "scissor" && computerSelection === "paper") {
-        console.log ("Congratulation!!! You've won this time" )
+    else if (playerSelection === "scissor" && computerSelection === "paper") {
+        result = ("Congratulation!!! You've won this time" );
+        playerScore += 1;
 }
     
     else {
-        console.log( "Please insert the correct word  " + "computer choice is  " + computerSelection)
+        result = ( "Please insert the correct word  " + "computer choice is  " + computerSelection)
     }
+    console.log(result)
     
   }
 
-
-  function getComputerChoice(myArray){
-       const randomItem = Math.floor(Math.random() * myArray.length);
-       const item = myArray[randomItem];
-       return item;
-  }
-  
-  const computerSelection = getComputerChoice(myArray);
-  
-  
-
-  //for (let i = 0; i < 5; i++ ) {
-
-  //  if (playerSelection <)
- // }
-    
-
-  
+  for ( let i = 0; i<5; i++) {
+   // getComputerChoice(myArray);
+   computerSelection = computerPlay();
+   playerSelection = prompt("Please insert Rock Paper or Scissor ");
+    playRound(playerSelection, computerSelection) ;
+   // console.log(playRound(playerSelection, computerSelection))
+}
 
 
-
-  
-  
-  
-    
-
-    
-    
-
-
-
-
-
- // console.log(getComputerChoice(myArray));
-   
-  //console.log(playRound(playerSelection));
- // playerSelection = "rock";
  
+  
+
+ 
+  
+  
+  
+  
+
+   
+
+  
+    alert('Player score is  ' + playerScore + ' Computer score is   ' + computerScore);
 
 
 
-  console.log(playRound(player, computerSelection))
+ 
