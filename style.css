@@ -57,7 +57,7 @@ h2{ font-size: 30px;
 }
 
 
-#button:hover{
+button:hover{
     transform: scale(1.2);
     border-color: rgb(13, 10, 207);
 }
@@ -70,4 +70,19 @@ h2{ font-size: 30px;
    #result-round {
     align-self: center;
     font-size: 30px;
+    margin: 30px 0;
    }
+
+   #reload{
+    font-size: 20px;
+    display: flex;
+    align-self: center;
+    margin: 30px 0;
+    border-radius: 8px;
+    background-color:aliceblue;
+    padding: 8px 48px;
+    transition: transform .3s ease-in-out;
+    
+     }
+
+     

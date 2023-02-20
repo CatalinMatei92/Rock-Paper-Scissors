@@ -1,19 +1,22 @@
   // DOM
-    const btn = Array.from(document.querySelectorAll('#button'));
+    const btn = document.querySelectorAll('#button');
     const scorePlayer = document.querySelector('.player-score');
     const scoreComputer = document.querySelector('.computer-score');
-    const rounds = document.querySelector("#round");
-    const resultRound = document.querySelector("#result-round")
+    const resultRound = document.querySelector("#result-round");
+    const btnReload = document.querySelector("#reload")
     
     let playerScore = 0;
     let computerScore = 0;
-    let round = 0;
-
+    
+    
   // Start Game when user clicks on the button  
     btn.forEach(button =>{
       button.addEventListener('click', function (){
         if (playerScore >= 5 || computerScore >= 5){
+          //document.getElementById("button").disabled = true;
+          //document.getElementById("button").classList.remove("hover-effect");
           return;
+          
         }
         playRound(button.value)
       })
@@ -33,41 +36,46 @@
             {
             result = ("You lose! " + computerSelection + " beats " + playerSelection );
             computerScore++;
-            round++;
-    } 
+          
+          } 
       else if (playerSelection == computerSelection){
-              result = ( "It's a tie! Try again!" );
-                
-   }
+              result = ( "It's a tie! Try again!" ); 
+         }
       else {       
               result = ("You won! " + playerSelection + " beats " + computerSelection );
-              playerScore++;
-              round++;
-    }
-    game(playerScore, computerScore) ;     
-       console.log(result);
+              playerScore++; 
+            }
+         
        resultRound.textContent = result; 
        scorePlayer.textContent = playerScore;
        scoreComputer.textContent = computerScore;
-       rounds.textContent = round;
+       game(playerScore, computerScore) ;
+      
   }
 
    
   
    function game(playerScore, computerScore){
-
+    
        if (playerScore == 5){
-       return round = ('YOU WIN' + ' Your score:' + playerScore + ' and Computer score is:' + computerScore );
+        resultRound.textContent = ("CONGRATULATIONS!!! You beat the computer" );
+        
+       
       }
        else if (computerScore ==5) {
-       return round = ('COMPUTER WIN' + ' Your score:' + playerScore + ' and Computer score is:' + computerScore)
+        resultRound.textContent = ("Unfortunately you lost, try one more time!");
+        
       }
     
-      
    }
 
+   btnReload.addEventListener('click', () => {
 
- // Helper functions
+    location.reload()
+
+  })
+
+ // Helper function
   
    function computerPlay() {
     let choices = ['rock', 'paper', 'scissors'];
@@ -75,10 +83,19 @@
      return item
   }
  
+
+  btnReload.addEventListener('click', () => {
+
+    location.reload()
+
+  })
+ 
   
-  
-  
+    
   
 
+
+  
+    
    
  
