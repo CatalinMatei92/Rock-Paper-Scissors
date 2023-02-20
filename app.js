@@ -13,9 +13,7 @@
     btn.forEach(button =>{
       button.addEventListener('click', function (){
         if (playerScore >= 5 || computerScore >= 5){
-          //document.getElementById("button").disabled = true;
-          //document.getElementById("button").classList.remove("hover-effect");
-          return;
+            return;
           
         }
         playRound(button.value)
